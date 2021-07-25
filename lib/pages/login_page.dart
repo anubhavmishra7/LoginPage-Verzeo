@@ -77,6 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   padding: EdgeInsets.only(top: 10, left: 8, right: 8),
                   child: Form(
+                    autovalidateMode: AutovalidateMode.always,
+                    key: formkey,
                     child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: (InputDecoration(
@@ -98,6 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Form(
+                  autovalidateMode: AutovalidateMode.always,
                   child: Container(
                     padding: EdgeInsets.only(top: 10, left: 8, right: 8),
                     child: TextFormField(
@@ -113,6 +116,8 @@ class _LoginPageState extends State<LoginPage> {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Required";
+                        } else if (value.length < 6) {
+                          return "Password of atleast 6";
                         } else {
                           return null;
                         }
@@ -137,10 +142,9 @@ class _LoginPageState extends State<LoginPage> {
 
                           padding: EdgeInsets.only(
                               left: 0, right: 0, top: 15, bottom: 15)),
-                      onPressed: validate
-                      //Navigator.pushNamed(context, Myroutes.loginroute);
-
-                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, Myroutes.homescreenroute);
+                      }),
                 ),
               ],
             )),
