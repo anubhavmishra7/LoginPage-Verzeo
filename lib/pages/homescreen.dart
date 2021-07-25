@@ -17,19 +17,22 @@ class Homescreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          children: [
-            Image.network(
-              "https://images.unsplash.com/photo-1624542316124-4dd666c0e2c4?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-              // width: 200,
-              // height: 200,
-              scale: 3.0,
-            ),
-            Text(
-              'Welcome to Home Screen',
-              style: TextStyle(fontSize: 30),
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 70.0),
+                child: Image.asset('assets/images/login.png'),
+              ),
+              Text(
+                'Hey there!',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              )
+            ],
+          ),
         ),
       ),
       drawer: Drawer(
@@ -98,7 +101,7 @@ class Homescreen extends StatelessWidget {
           ),
           ListTile(
             onTap: () => _alertDialog(context),
-            leading: Icon(Icons.logout),
+            leading: Icon(Icons.power_settings_new),
             title: Text(
               'Logout',
               style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
@@ -134,7 +137,8 @@ _alertDialog(BuildContext context) => showDialog(
               padding: const EdgeInsets.only(top: 30.0),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Myroutes.homescreenroute);
+                  Navigator.pop(context);
+                  // Navigator.pushNamed(context, Myroutes.homescreenroute);
                 },
                 child: Text('No',
                     style: TextStyle(color: Colors.black, fontSize: 20)),

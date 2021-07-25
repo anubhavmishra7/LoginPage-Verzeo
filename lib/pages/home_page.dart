@@ -87,7 +87,7 @@ class Homepage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
                       child: TextButton(
-                        child: Text('Register', style: TextStyle(fontSize: 20)),
+                        child: Text('REGISTER', style: TextStyle(fontSize: 20)),
                         style: TextButton.styleFrom(
                             primary: Colors.white,
                             backgroundColor: Colors.greenAccent,
